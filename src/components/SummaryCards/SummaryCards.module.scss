@@ -1,0 +1,90 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-out;
+  
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    .label {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .icon {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      
+      &.income {
+        background: rgba(34, 197, 94, 0.2);
+        color: #4ade80;
+      }
+      
+      &.expense {
+        background: rgba(239, 68, 68, 0.2);
+        color: #f87171;
+      }
+      
+      &.total {
+        background: rgba(147, 51, 234, 0.2);
+        color: #a78bfa;
+      }
+    }
+  }
+  
+  .amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    @media (min-width: 640px) {
+      font-size: 1.875rem;
+    }
+    
+    &.income {
+      color: #4ade80;
+    }
+    
+    &.expense {
+      color: #f87171;
+    }
+    
+    &.total {
+      color: #a78bfa;
+    }
+    
+    &.negative {
+      color: #f87171;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
