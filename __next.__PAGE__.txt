@@ -4,7 +4,7 @@
 6:I[97367,["/ticto-finance/_next/static/chunks/ff1a16fafef87110.js","/ticto-finance/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
 :HL["/ticto-finance/_next/static/chunks/9bce250cf998692b.css","style"]
-0:{"buildId":"pz19-tpmPnTnYWcotRj5f","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/ticto-finance/_next/static/chunks/9bce250cf998692b.css","precedence":"next"}],["$","script","script-0",{"src":"/ticto-finance/_next/static/chunks/56fac94c1715313d.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"mlCt5QorXanxpaP5Ozcyg","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/ticto-finance/_next/static/chunks/9bce250cf998692b.css","precedence":"next"}],["$","script","script-0",{"src":"/ticto-finance/_next/static/chunks/56fac94c1715313d.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
