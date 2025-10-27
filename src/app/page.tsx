@@ -1,24 +1,19 @@
 'use client';
+
 import { useState, useMemo } from 'react';
 import Header from '@/components/Header/Header';
 import SummaryCards from '@/components/SummaryCards/SummaryCards';
 import TransactionList from '@/components/TransactionList/TransactionList';
 import TransactionModal from '@/components/TransactionModal/TransactionModal';
-
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  date: string;
-  type: 'income' | 'expense';
-}
+import { Transaction } from '@/types/Transaction';
+import styles from './page.module.scss';
 
 export default function Home() {
   const [transactions, setTransactions] = useState<Transaction[]>([
-    { id: 1, title: 'Salário', amount: 5000, type: 'income', date: '2025-10-01' },
-    { id: 2, title: 'Aluguel', amount: 1500, type: 'expense', date: '2025-10-05' },
-    { id: 3, title: 'Freelance', amount: 800, type: 'income', date: '2025-10-10' },
-    { id: 4, title: 'Mercado', amount: 450, type: 'expense', date: '2025-10-12' }
+    { id: 1, title: 'Salário', amount: 5000, type: 'income', date: '2025-10-01', category: 'Salário' },
+    { id: 2, title: 'Aluguel', amount: 1500, type: 'expense', date: '2025-10-05', category: 'Moradia' },
+    { id: 3, title: 'Freelance', amount: 800, type: 'income', date: '2025-10-10', category: 'Salário' },
+    { id: 4, title: 'Mercado', amount: 450, type: 'expense', date: '2025-10-12', category: 'Mercado' }
   ]);
 
   const [showModal, setShowModal] = useState(false);
@@ -55,11 +50,7 @@ export default function Home() {
     <>
       <Header onAddClick={() => setShowModal(true)} />
       
-      <main style={{ 
-        maxWidth: '1280px', 
-        margin: '0 auto', 
-        padding: '2rem 1rem' 
-      }}>
+      <main className={styles.mainContent}>
         <SummaryCards summary={summary} />
         <TransactionList 
           transactions={transactions} 
@@ -67,11 +58,13 @@ export default function Home() {
         />
       </main>
 
-      <TransactionModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onSubmit={handleAddTransaction}
-      />
+      {showModal && (
+        <TransactionModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          onSubmit={handleAddTransaction}
+        />
+      )}
     </>
   );
 }

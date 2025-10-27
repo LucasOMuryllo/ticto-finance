@@ -1,9 +1,5 @@
-// Variáveis globais
-$primary-color: #9333ea;
-$success-color: #22c55e;
-$danger-color: #ef4444;
-$dark-bg: #0f172a;
-$purple-bg: #581c87;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import '../styles/variables';
 
 // Reset e estilos globais
 * {
@@ -17,7 +13,7 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, $dark-bg 0%, $purple-bg 50%, $dark-bg 100%);
+  background-color: $background-color;
   min-height: 100vh;
 }
 

@@ -2,13 +2,7 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
-export type Transaction = {
-  id: string;
-  title: string;
-  amount: number;
-  type: 'income' | 'expense';
-  date: string;
-};
+import { Transaction } from '@/types/Transaction';
 import styles from './TransactionModal.module.scss';
 
 interface TransactionModalProps {
@@ -17,11 +11,12 @@ interface TransactionModalProps {
   onSubmit: (transaction: Omit<Transaction, 'id'>) => void;
 }
 
-export default function TransactionModal({ isOpen, onClose, onSubmit }: TransactionModalProps) {
+export default function TransactionModal({ isOpen, onClose, onSubmit }: Readonly<TransactionModalProps>) {
   const [formData, setFormData] = useState({
     title: '',
     amount: '',
     type: 'income' as 'income' | 'expense',
+    category: '',
     date: new Date().toISOString().split('T')[0]
   });
 
@@ -32,8 +27,9 @@ export default function TransactionModal({ isOpen, onClose, onSubmit }: Transact
 
     onSubmit({
       title: formData.title,
-      amount: parseFloat(formData.amount),
+      amount: Number.parseFloat(formData.amount),
       type: formData.type,
+      category: formData.category,
       date: formData.date
     });
 
@@ -41,21 +37,16 @@ export default function TransactionModal({ isOpen, onClose, onSubmit }: Transact
       title: '',
       amount: '',
       type: 'income',
+      category: '',
       date: new Date().toISOString().split('T')[0]
     });
   };
 
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
   return (
-    <div className={styles.overlay} onClick={handleOverlayClick}>
+    <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.header}>
-          <h2>Nova Transação</h2>
+          <h2 id="modal-title">Cadastrar Transação</h2>
           <button onClick={onClose} className={styles.closeButton}>
             <X size={20} />
           </button>
@@ -63,30 +54,27 @@ export default function TransactionModal({ isOpen, onClose, onSubmit }: Transact
 
         <div className={styles.body}>
           <div className={styles.formGroup}>
-            <label>Descrição</label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              placeholder="Ex: Salário, Aluguel..."
+              placeholder="Nome"
               className={styles.input}
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label>Valor</label>
             <input
               type="number"
               step="0.01"
               value={formData.amount}
               onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-              placeholder="0,00"
+              placeholder="Preço"
               className={styles.input}
             />
           </div>
 
           <div className={styles.formGroup}>
-            <label>Tipo</label>
             <div className={styles.typeButtons}>
               <button
                 type="button"
@@ -110,7 +98,16 @@ export default function TransactionModal({ isOpen, onClose, onSubmit }: Transact
           </div>
 
           <div className={styles.formGroup}>
-            <label>Data</label>
+            <input
+              type="text"
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              placeholder="Categoria"
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
             <input
               type="date"
               value={formData.date}

@@ -1,12 +1,13 @@
+@import '../../styles/variables';
+
 .header {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
+  background: $primary-color;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   
   .container {
-    max-width: 1280px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,11 +22,15 @@
   }
   
   .title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: white;
     
     @media (min-width: 640px) {
+      font-size: 1.5rem;
+    }
+    
+    @media (min-width: 1024px) {
       font-size: 1.875rem;
     }
     
@@ -38,21 +43,23 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: #9333ea;
+    background: $add-button-color;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.2s;
-    box-shadow: 0 4px 6px rgba(147, 51, 234, 0.3);
+    box-shadow: 0 4px 6px rgba(64, 26, 155, 0.26);
+    font-size: 14px;
     
     @media (min-width: 640px) {
       padding: 0.75rem 1.5rem;
+      font-size: 16px;
     }
     
     &:hover {
-      background: #7e22ce;
-      box-shadow: 0 6px 12px rgba(147, 51, 234, 0.5);
+      background: darken($add-button-color, 6%);
+      box-shadow: 0 6px 12px rgba(64, 26, 155, 0.36);
       transform: translateY(-2px);
     }
     

@@ -1,6 +1,8 @@
 'use client';
 import { Plus } from 'lucide-react';
 import styles from './Header.module.scss';
+import Image from 'next/image';
+import logo from '@/assets/image/logo.png';
 
 interface HeaderProps {
     onAddClick: () => void;
@@ -11,7 +13,7 @@ export default function Header({ onAddClick }: HeaderProps) {
         <header className={styles.header}>
             <div className={styles.container}>
                 <h1 className={styles.title}>
-                    Ticto <span className={styles.highlight}>Finance</span>
+                    <Image src={logo} alt="Ticto Finance Logo" />
                 </h1>
                 <button onClick={onAddClick} className={styles.addButton}>
                     <Plus size={20} />
