@@ -221,25 +221,6 @@ npm run lint         # Verificação ESLint
 - Mixins para responsividade
 - CSS Modules para scoping
 
-## 🌟 Próximas Funcionalidades
-
-- [ ] **Persistência de Dados**: Integração com banco de dados
-- [ ] **Filtros e Busca**: Filtros por categoria, data e valor
-- [ ] **Relatórios**: Gráficos e relatórios financeiros
-- [ ] **Categorias Predefinidas**: Sistema de categorias inteligente
-- [ ] **Exportação**: Exportar dados para CSV/PDF
-- [ ] **Metas Financeiras**: Definição e acompanhamento de objetivos
-- [ ] **Notificações**: Lembretes e alertas personalizados
-
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Para contribuir:
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
 
 ## 📄 Licença
 
